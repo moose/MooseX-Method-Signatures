@@ -1,7 +1,7 @@
 use strict;
 use warnings;
-use Test::More tests => 10;
-use Test::Exception;
+use Test::More tests => 14;
+use Test::Fatal;
 
 use MooseX::Method::Signatures::Meta::Method;
 
@@ -23,11 +23,11 @@ use MooseX::Method::Signatures::Meta::Method;
     Foo->meta->add_method(bar => $method);
 }
 
-lives_and(sub {
+is(exception {
     is(Foo->bar(foo => 3, bar => 'baz'), 'bazbazbaz');
-});
+}, undef);
 
-dies_ok(sub {
+ok(exception {
     Foo->bar(foo => 'moo', bar => 'baz');
 });
 
@@ -51,17 +51,17 @@ dies_ok(sub {
     Bar->meta->add_method(bar => $method);
 }
 
-lives_and(sub {
+is(exception {
     is(Bar->bar(foo => 3, bar => 'baz'), 'bazbazbaz');
-});
+}, undef);
 
-dies_ok(sub {
+ok(exception {
     Bar->bar(foo => 'moo', bar => 'baz');
 });
 
 
 # CatalystX::Declare seems to create a method without a code at all.
-lives_and(sub {
+is(exception {
     package Baz;
     use metaclass;
 
@@ -83,13 +83,13 @@ lives_and(sub {
 
 
     Baz->meta->add_method(baz => $other);
-});
+}, undef);
 
-lives_and(sub {
+is(exception {
     is(Baz->baz(foo => 3, bar => 'baz'), 'bazbazbaz');
-});
+}, undef);
 
-dies_ok(sub {
+ok(exception {
     Baz->baz(foo => 'moo', bar => 'baz');
 });
 

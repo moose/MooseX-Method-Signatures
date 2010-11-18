@@ -1,7 +1,7 @@
 use strict;
 use warnings;
-use Test::More tests => 4;
-use Test::Exception;
+use Test::More tests => 5;
+use Test::Fatal;
 
 use MooseX::Method::Signatures;
 
@@ -13,14 +13,14 @@ my $o = bless {} => 'Foo';
     };
     isa_ok($meth, 'Moose::Meta::Method');
 
-    dies_ok(sub {
+    ok(exception {
         $o->${\$meth->body}('foo')
     });
 
-    lives_and(sub {
+    is(exception {
         my $ret = $o->${\$meth->body}('foo', 3);
         is_deeply($ret, [('foo') x 3]);
-    });
+    }, undef);
 }
 
 {
@@ -28,7 +28,7 @@ my $o = bless {} => 'Foo';
         return 42.5;
     };
 
-    dies_ok(sub {
+    ok(exception {
         my $x = $o->${\$meth->body}('foo');
     });
 }

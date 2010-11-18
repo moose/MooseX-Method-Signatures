@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Exception;
+use Test::Fatal;
 
 {
     package Foo;
@@ -19,12 +19,12 @@ use Test::Exception;
 
 my $foo = Foo->new;
 
-lives_ok(sub { $foo->m1(bar => undef) }, 'Explicitly pass undef to positional required arg');
-lives_ok(sub { $foo->m2(bar => undef) }, 'Explicitly pass undef to positional explicit optional arg');
-lives_ok(sub { $foo->m3(bar => undef) }, 'Explicitly pass undef to positional implicit optional arg');
+is(exception { $foo->m1(bar => undef) }, undef, 'Explicitly pass undef to positional required arg');
+is(exception { $foo->m2(bar => undef) }, undef, 'Explicitly pass undef to positional explicit optional arg');
+is(exception { $foo->m3(bar => undef) }, undef, 'Explicitly pass undef to positional implicit optional arg');
 
-lives_ok(sub { $foo->m4(undef) }, 'Explicitly pass undef to required arg');
-lives_ok(sub { $foo->m5(undef) }, 'Explicitly pass undef to explicit required arg');
-lives_ok(sub { $foo->m6(undef) }, 'Explicitly pass undef to implicit required arg');
+is(exception { $foo->m4(undef) }, undef, 'Explicitly pass undef to required arg');
+is(exception { $foo->m5(undef) }, undef, 'Explicitly pass undef to explicit required arg');
+is(exception { $foo->m6(undef) }, undef, 'Explicitly pass undef to implicit required arg');
 
 done_testing;

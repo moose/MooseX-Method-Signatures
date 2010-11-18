@@ -1,7 +1,7 @@
 use strict;
 use warnings;
-use Test::More tests => 3;
-use Test::Exception;
+use Test::More tests => 4;
+use Test::Fatal;
 
 use MooseX::Method::Signatures;
 
@@ -12,12 +12,12 @@ my $meth = method ($, $, $foo, $, $bar, $) {
 };
 isa_ok($meth, 'Moose::Meta::Method');
 
-dies_ok(sub {
+ok(exception {
     $meth->($o, 1, 2, 3, 4, 5);
 });
 
-lives_and(sub {
+is(exception {
     is($meth->($o, 1, 2, 3, 4, 5, 6), 35);
-});
+}, undef);
 
 1;

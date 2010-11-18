@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Exception;
+use Test::Fatal;
 
 {
     package Foo;
@@ -12,7 +12,7 @@ use Test::Exception;
 }
 
 my $o = Foo->new;
-lives_ok(sub { $o->foo(42) });
-throws_ok(sub { $o->foo(42, 23) }, qr/Validation failed/);
+is(exception { $o->foo(42) }, undef);
+like(exception { $o->foo(42, 23) }, qr/Validation failed/);
 
 done_testing;

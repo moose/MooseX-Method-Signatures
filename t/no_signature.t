@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Exception;
+use Test::Fatal;
 
 {
     package Foo;
@@ -12,12 +12,12 @@ use Test::Exception;
 
 my $foo = Foo->new;
 
-lives_ok(sub {
+is(exception {
     $foo->bar
-}, 'method without signature succeeds when called without args');
+}, undef, 'method without signature succeeds when called without args');
 
-lives_ok(sub {
+is(exception {
     $foo->bar(42)
-}, 'method without signature succeeds when called with args');
+}, undef, 'method without signature succeeds when called with args');
 
 done_testing;

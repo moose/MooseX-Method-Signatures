@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Exception;
+use Test::Fatal;
 
 use FindBin;
 use lib "$FindBin::Bin/lib";
@@ -13,15 +13,15 @@ use lib "$FindBin::Bin/lib";
 
     use aliased 'My::Annoyingly::Long::Name::Space', 'Shortcut';
 
-    eval 'method alias_sig (Shortcut $affe) { }';
-    ::ok(!$@, 'method with aliased type constraint compiles');
+    ::is(::exception { method alias_sig (Shortcut $affe) { } },
+        undef, 'method with aliased type constraint compiles');
 }
 
 my $o = TestClass->new;
 my $affe = My::Annoyingly::Long::Name::Space->new;
 
-lives_ok(sub {
+is(exception {
     $o->alias_sig($affe);
-}, 'calling method with aliased type constraint');
+}, undef, 'calling method with aliased type constraint');
 
 done_testing;

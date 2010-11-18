@@ -2,7 +2,6 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Exception;
 use MooseX::Method::Signatures;
 use Moose::Util::TypeConstraints;
 

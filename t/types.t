@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use Test::Exception;
+use Test::Fatal;
 
 {
     package MyTypes;
@@ -30,8 +30,8 @@ use Test::Exception;
 
 my $o = bless {} => 'TestClass';
 
-lives_ok(sub { $o->foo('42') });
-dies_ok(sub { $o->foo('bar') });
+is(exception { $o->foo('42') }, undef);
+ok(exception { $o->foo('bar') });
 
-lives_ok(sub { $o->bar(['42', '23']) });
-dies_ok(sub { $o->bar(['foo', 'bar']) });
+is(exception { $o->bar(['42', '23']) }, undef);
+ok(exception { $o->bar(['foo', 'bar']) });

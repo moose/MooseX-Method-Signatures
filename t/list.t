@@ -1,7 +1,7 @@
 use strict;
 use warnings;
-use Test::More tests => 18;
-use Test::Exception;
+use Test::More tests => 25;
+use Test::Fatal;
 use MooseX::Method::Signatures;
 
 my $o = bless {} => 'Foo';
@@ -17,16 +17,16 @@ my $o = bless {} => 'Foo';
     );
 
     for my $meth (@meths) {
-        dies_ok(sub { $o->${\$meth->body}() });
-        dies_ok(sub { $o->${\$meth->body}('foo') });
+        ok(exception { $o->${\$meth->body}() });
+        ok(exception { $o->${\$meth->body}('foo') });
 
-        lives_and(sub {
+        is(exception {
             is($o->${\$meth->body}('foo', 'bar'), q{});
-        });
+        }, undef);
 
-        lives_and(sub {
+        is(exception {
             is($o->${\$meth->body}('foo', 'bar', 1 .. 6), q{1,2,3,4,5,6});
-        });
+        }, undef);
     }
 }
 
@@ -35,15 +35,15 @@ my $o = bless {} => 'Foo';
         return join q{,}, @rest;
     };
 
-    lives_and(sub {
+    is(exception {
         is($o->${\$meth->body}('foo', 42), q{});
-    });
+    }, undef);
 
-    lives_and(sub {
+    is(exception {
         is($o->${\$meth->body}('foo', 42, 23, 13), q{23,13});
-    });
+    }, undef);
 
-    throws_ok(sub {
+    like(exception {
         $o->${\$meth->body}('foo', 42, 'moo', 13);
     }, qr/Validation failed/);
 }
@@ -53,20 +53,20 @@ my $o = bless {} => 'Foo';
         return join q{,}, map { @{ $_ } } @foo;
     };
 
-    lives_and(sub {
+    is(exception {
         is($o->${\$meth->body}([42, 23], [12], [18]), '42,23,12,18');
-    });
+    }, undef);
 
-    throws_ok(sub {
+    like(exception {
         $o->${\$meth->body}([42, 23], 12, [18]);
     }, qr/Validation failed/);
 }
 
 {
     my $meth = method (Str $foo, Int @) {};
-    lives_ok(sub { $meth->($o, 'foo') });
-    lives_ok(sub { $meth->($o, 'foo', 42) });
-    lives_ok(sub { $meth->($o, 'foo', 42, 23) });
+    is(exception { $meth->($o, 'foo') }, undef);
+    is(exception { $meth->($o, 'foo', 42) }, undef);
+    is(exception { $meth->($o, 'foo', 42, 23) }, undef);
 }
 
 {

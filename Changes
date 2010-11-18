@@ -1,5 +1,9 @@
 Version history for MooseX::Method::Signatures
 
+{{NEXT}}
+  * The test suite now uses Test::Fatal instead of Test::Exception (Karen
+    Etheridge).
+
 0.38 Fri Mar  9 23:43:07 GMT 2012
   * Require B::Hooks::EndOfScope 0.10 and Module::Runtime 0.012, fixing various
     perl 5.8 breakages.
