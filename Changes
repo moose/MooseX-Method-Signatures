@@ -3,6 +3,8 @@ Version history for MooseX::Method::Signatures
 {{NEXT}}
   * The test suite now uses Test::Fatal instead of Test::Exception (Karen
     Etheridge).
+  * Bump dependency on MooseX::Types::Structured to 0.24, whcih which contains
+    more detailed error messages as well as some performance enhancements.
 
 0.38 Fri Mar  9 23:43:07 GMT 2012
   * Require B::Hooks::EndOfScope 0.10 and Module::Runtime 0.012, fixing various
