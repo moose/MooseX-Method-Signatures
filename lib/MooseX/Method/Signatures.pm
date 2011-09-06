@@ -158,6 +158,7 @@ sub strip_traits {
 
     # Let's check to make sure these traits aren't aliased locally
     for my $t (@traits) {
+        next if $t->[0] =~ /::/;
         my $class = $ctx->get_curstash_name;
         my $meta = Class::MOP::class_of($class) || Moose::Meta::Class->initialize($class);
         my $func = $meta->get_package_symbol('&' . $t->[0]);

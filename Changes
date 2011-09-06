@@ -1,5 +1,8 @@
 Version history for MooseX::Method::Signatures
 
+0.37
+  * Don't look in the stash for traits or types that contain :: (Jesse Luehrs).
+
 0.36  Tue, 31 Aug 2010 23:36:19 +0200
   * Avoid deprecation warnings from new Moose version by depending on
     MooseX::LazyRequire 0.06 (Jeremy Carman).
