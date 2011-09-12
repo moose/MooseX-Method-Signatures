@@ -1,6 +1,6 @@
 Version history for MooseX::Method::Signatures
 
-0.37
+0.37 Mon, 12 Sep 2011 10:35:29 +0100
   * Don't look in the stash for traits or types that contain :: (Jesse Luehrs).
 
 0.36  Tue, 31 Aug 2010 23:36:19 +0200
