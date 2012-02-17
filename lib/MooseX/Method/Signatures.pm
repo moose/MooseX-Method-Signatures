@@ -6,7 +6,7 @@ package MooseX::Method::Signatures;
 
 use Moose 0.89;
 use Devel::Declare 0.005011 ();
-use B::Hooks::EndOfScope 0.07;
+use B::Hooks::EndOfScope 0.10;
 use Moose::Meta::Class;
 use MooseX::LazyRequire 0.06;
 use MooseX::Types::Moose 0.19 qw/Str Bool CodeRef/;
