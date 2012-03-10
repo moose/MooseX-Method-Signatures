@@ -18,7 +18,7 @@ like($@,
 
   eval "use Redefined;";
   is($@, '', "No error");
-  like($warnings, qr/^Method meth1 redefined on package main at .*?\bRedefined.pm line 9$/,
+  like($warnings, qr/^Method meth1 redefined on package main at .*?\bRedefined.pm line 9\b/,
        "Redefined method warning");
 }
 

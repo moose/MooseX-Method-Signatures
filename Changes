@@ -1,9 +1,12 @@
 Version history for MooseX::Method::Signatures
 
+0.40  Sat Mar 10 09:03:51 PST 2012
+  * Loosen a regexp in a test, to handle the new format emitted by Carp 1.25.
+
 0.39  Sat Mar 10 00:54:18 GMT 2012
   * The test suite now uses Test::Fatal instead of Test::Exception (Karen
     Etheridge).
-  * Bump dependency on MooseX::Types::Structured to 0.24, whcih which contains
+  * Bump dependency on MooseX::Types::Structured to 0.24, which contains
     more detailed error messages as well as some performance enhancements.
 
 0.38  Fri Mar  9 23:43:07 GMT 2012
