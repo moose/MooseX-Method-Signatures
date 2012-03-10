@@ -1,16 +1,16 @@
 Version history for MooseX::Method::Signatures
 
-{{NEXT}}
+0.39  Sat Mar 10 00:54:18 GMT 2012
   * The test suite now uses Test::Fatal instead of Test::Exception (Karen
     Etheridge).
   * Bump dependency on MooseX::Types::Structured to 0.24, whcih which contains
     more detailed error messages as well as some performance enhancements.
 
-0.38 Fri Mar  9 23:43:07 GMT 2012
+0.38  Fri Mar  9 23:43:07 GMT 2012
   * Require B::Hooks::EndOfScope 0.10 and Module::Runtime 0.012, fixing various
     perl 5.8 breakages.
 
-0.37 Mon, 12 Sep 2011 10:35:29 +0100
+0.37  Mon, 12 Sep 2011 10:35:29 +0100
   * Don't look in the stash for traits or types that contain :: (Jesse Luehrs).
 
 0.36  Tue, 31 Aug 2010 23:36:19 +0200
