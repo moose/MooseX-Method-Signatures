@@ -1,5 +1,9 @@
 Version history for MooseX::Method::Signatures
 
+0.41  Sun Mar 11 10:05:27 PDT 2012
+  * Add explicit dependency on Eval::Closure, in an effort to get more
+  * diagnostics from failing cpantesters reports.  No functionality changes.
+
 0.40  Sat Mar 10 09:03:51 PST 2012
   * Loosen a regexp in a test, to handle the new format emitted by Carp 1.25.
 
