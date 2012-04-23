@@ -1,5 +1,9 @@
 Version history for MooseX::Method::Signatures
 
+  * Mark failing test due to Eval::Closure/Devel::Declare issues as TODO until
+    things are fixed, to at least allow recent versions to install without
+    errors.
+
 0.41  Sun Mar 11 10:05:27 PDT 2012
   * Add explicit dependency on Eval::Closure, in an effort to get more
     diagnostics from failing cpantesters reports.  No functionality changes.
