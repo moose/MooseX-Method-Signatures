@@ -1,6 +1,8 @@
 Version history for MooseX::Method::Signatures
 
 {{$NEXT}}
+
+0.42      2012-04-23 11:08:19 PDT-0700
   * Mark failing test due to Eval::Closure/Devel::Declare issues as TODO until
     things are fixed, to at least allow recent versions to install without
     errors.
