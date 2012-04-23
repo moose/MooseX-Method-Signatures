@@ -1,5 +1,6 @@
 Version history for MooseX::Method::Signatures
 
+{{$NEXT}}
   * Mark failing test due to Eval::Closure/Devel::Declare issues as TODO until
     things are fixed, to at least allow recent versions to install without
     errors.
