@@ -1,6 +1,8 @@
 Version history for MooseX::Method::Signatures
 
 {{$NEXT}}
+  * Bump dependency on MooseX::Types to 0.35 to resolve issues with recent
+    MooseX::Types releases.
 
 0.42      2012-04-23 11:08:19 PDT-0700
   * Mark failing test due to Eval::Closure/Devel::Declare issues as TODO until
