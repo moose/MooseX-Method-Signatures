@@ -74,5 +74,5 @@ my $o = bless {} => 'Foo';
     like $@, qr/arrays or hashes cannot be named/i;
 
     eval 'my $meth = method ($foo, @bar, :$baz) { }';
-    like $@, qr/named parameters can not be combined with slurpy positionals/i;
+    like $@, qr/named parameters cannot be combined with slurpy positionals/i;
 }
