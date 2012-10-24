@@ -19,9 +19,9 @@ use Test::Fatal;
 
 my $foo = Foo->new;
 
-is(exception { $foo->m1(bar => undef) }, undef, 'Explicitly pass undef to positional required arg');
-is(exception { $foo->m2(bar => undef) }, undef, 'Explicitly pass undef to positional explicit optional arg');
-is(exception { $foo->m3(bar => undef) }, undef, 'Explicitly pass undef to positional implicit optional arg');
+is(exception { $foo->m1(bar => undef) }, undef, 'Explicitly pass undef to named required arg');
+is(exception { $foo->m2(bar => undef) }, undef, 'Explicitly pass undef to named explicit optional arg');
+is(exception { $foo->m3(bar => undef) }, undef, 'Explicitly pass undef to named implicit optional arg');
 
 is(exception { $foo->m4(undef) }, undef, 'Explicitly pass undef to required arg');
 is(exception { $foo->m5(undef) }, undef, 'Explicitly pass undef to explicit required arg');
