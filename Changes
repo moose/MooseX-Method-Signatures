@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.44      2012-11-24 13:17:02 PST-0800 (Karen Etheridge)
   * Fix broken test in 5.17.6, where hash ordering is now randomized
     (RT#81388, Karen Etheridge)
 
