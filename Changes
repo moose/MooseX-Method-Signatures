@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  * Fix broken test in 5.17.6, where hash ordering is now randomized
+    (RT#81388, Karen Etheridge)
 
 0.43      2012-05-20 17:34:04 PDT-0700
   * Bump dependency on MooseX::Types to 0.35 to resolve issues with recent
