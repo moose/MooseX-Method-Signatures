@@ -601,8 +601,6 @@ L<Method::Signatures::Simple>
 
 L<Method::Signatures>
 
-L<Perl6::Subs>
-
 L<Devel::Declare>
 
 L<Parse::Method::Signatures>
