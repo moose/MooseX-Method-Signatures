@@ -349,7 +349,7 @@ sub _build__named_args {
     my @named;
 
     if ($sig->has_named_params) {
-        confess 'Named parameters can not be combined with slurpy positionals'
+        confess 'Named parameters cannot be combined with slurpy positionals'
             if $self->_has_slurpy_positional;
         for my $param ($sig->named_params) {
             push @named, $param->label => $self->_param_to_spec($param);
