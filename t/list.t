@@ -18,9 +18,8 @@ my $o = bless {} => 'Foo';
 
     for my $meth_name (keys %meths) {
         my $meth = $meths{$meth_name};
-        # TODO: should test the exact failure here
-        ok(exception { $o->${\$meth->body}() }, "$meth_name dies without args");
-        ok(exception { $o->${\$meth->body}('foo') }, "$meth_name dies with one arg");
+        like(exception { $o->${\$meth->body}() }, qr/^Validation failed/, "$meth_name dies without args");
+        like(exception { $o->${\$meth->body}('foo') }, qr/^Validation failed/, "$meth_name dies with one arg");
 
         is(exception {
             is($o->${\$meth->body}('foo', 'bar'), q{}, "$meth_name - empty \@rest list");
@@ -48,7 +47,7 @@ my $o = bless {} => 'Foo';
 
     like(exception {
         $o->${\$meth->body}('foo', 42, 'moo', 13, 'non-empty str @rest list passed through');
-    }, qr/Validation failed/, "...and doesn't validate");
+    }, qr/^Validation failed/, "...and doesn't validate");
 }
 
 {
