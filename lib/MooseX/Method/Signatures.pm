@@ -607,4 +607,6 @@ L<Parse::Method::Signatures>
 
 L<Moose>
 
+L<signatures>
+
 =cut
