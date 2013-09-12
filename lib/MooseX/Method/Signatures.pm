@@ -14,6 +14,7 @@ use Text::Balanced qw/extract_quotelike/;
 use MooseX::Method::Signatures::Meta::Method;
 use MooseX::Method::Signatures::Types qw/PrototypeInjections/;
 use Sub::Name;
+use Moose::Util 'find_meta';
 use Module::Runtime 'use_module';
 use Carp;
 
@@ -161,7 +162,7 @@ sub strip_traits {
     for my $t (@traits) {
         next if $t->[0] =~ /::/;
         my $class = $ctx->get_curstash_name;
-        my $meta = Class::MOP::class_of($class) || Moose::Meta::Class->initialize($class);
+        my $meta = find_meta($class) || Moose::Meta::Class->initialize($class);
         my $func = $meta->get_package_symbol('&' . $t->[0]);
         next unless $func;
 
