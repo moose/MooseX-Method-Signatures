@@ -595,6 +595,10 @@ make sure that your C<with> declaration happens after any
 method/subroutine declarations that may have the same name as a
 method/subroutine within a role.
 
+=head1 CAVEATS
+
+You are encouraged to read the L<MooseX::Declare/WARNING>.
+
 =head1 SEE ALSO
 
 L<MooseX::Declare>
