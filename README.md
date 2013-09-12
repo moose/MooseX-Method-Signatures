@@ -2,6 +2,10 @@
 
 MooseX::Method::Signatures - Method declarations with type constraints and no source filter
 
+# VERSION
+
+version 0.45
+
 # SYNOPSIS
 
     package Foo;
@@ -99,7 +103,7 @@ constraint.
 
     method foo ($bar, $, $baz)
 
-Sometimes you don't care about some params you're being called with. Just put
+Sometimes you don't care about some parameters you're being called with. Just put
 the bare sigil instead of a full variable name into the signature to avoid an
 extra lexical variable to be created.
 
@@ -249,6 +253,10 @@ make sure that your `with` declaration happens after any
 method/subroutine declarations that may have the same name as a
 method/subroutine within a role.
 
+# CAVEATS
+
+You are encouraged to read the ["WARNING" in MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare#WARNING).
+
 # SEE ALSO
 
 [MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare)
@@ -265,29 +273,13 @@ method/subroutine within a role.
 
 [signatures](http://search.cpan.org/perldoc?signatures)
 
-# AUTHORS
+# AUTHOR
 
-- Florian Ragwitz <rafl@debian.org>
-- Ash Berlin <ash@cpan.org>
-- Cory Watson <gphat@cpan.org>
-- Daniel Ruoso <daniel@ruoso.com>
-- Dave Rolsky <autarch@urth.org>
-- Hakim Cassimally <hakim.cassimally@gmail.com>
-- Jonathan Scott Duff <duff@pobox.com>
-- Justin Hunter <justin.d.hunter@gmail.com>
-- Kent Fredric <kentfredric@gmail.com>
-- Maik Hentsche <maik.hentsche@amd.com>
-- Matt Kraai <kraai@ftbfs.org>
-- Rhesa Rozendaal <rhesa@cpan.org>
-- Ricardo SIGNES <rjbs@cpan.org>
-- Steffen Schwigon <ss5@renormalist.net>
-- Yanick Champoux <yanick@babyl.dyndns.org>
-- Nicholas Perez <nperez@cpan.org>
-- Karen Etheridge <ether@cpan.org>
+Florian Ragwitz <rafl@debian.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Florian Ragwitz.
+This software is copyright (c) 2013 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

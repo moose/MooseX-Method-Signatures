@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.45      2013-09-12 03:06:25Z (Karen Etheridge)
   - removed use of deprecated Class::MOP::load_class
   - documentation reference added to the WARNING section in MooseX::Declare,
     regarding future utility of this module
