@@ -6,11 +6,13 @@ use Test::Moose;
 {
     package Bar;
     use Moose::Role;
+    BEGIN { $INC{'Bar.pm'} = 1; }
 }
 
 {
     package Baz;
     use Moose::Role;
+    BEGIN { $INC{'Baz.pm'} = 1; }
 }
 
 {
@@ -18,6 +20,8 @@ use Test::Moose;
 
     use Moose;
     use MooseX::Method::Signatures;
+
+    BEGIN { $INC{'Foo.pm'} = 1; }
 
     method bar ($baz) does Bar { $baz }
     method bla ($baz) does Bar does Baz { $baz }
