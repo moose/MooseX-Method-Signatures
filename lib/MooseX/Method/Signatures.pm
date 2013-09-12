@@ -14,6 +14,7 @@ use Text::Balanced qw/extract_quotelike/;
 use MooseX::Method::Signatures::Meta::Method;
 use MooseX::Method::Signatures::Types qw/PrototypeInjections/;
 use Sub::Name;
+use Module::Runtime 'use_module';
 use Carp;
 
 use aliased 'Devel::Declare::Context::Simple', 'ContextSimple';
@@ -235,7 +236,7 @@ sub _parser {
     if ($args{traits}) {
         my @traits = ();
         foreach my $t (@{$args{traits}}) {
-            Class::MOP::load_class($t->[0]);
+            use_module($t->[0]);
             if ($t->[1]) {
                 %args = (%args, eval $t->[1]);
             };
