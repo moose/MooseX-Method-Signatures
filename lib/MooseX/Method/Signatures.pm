@@ -418,6 +418,8 @@ signature syntax is supported yet and some of it never will be.
 
     method foo ($foo where { $_ % 2 == 0 }) # only even
 
+=for stopwords Invocant
+
 =head2 Invocant
 
     method foo (        $moo) # invocant is called $self and is required
@@ -442,7 +444,9 @@ constraint.
 
     method foo ($bar, $, $baz)
 
-Sometimes you don't care about some params you're being called with. Just put
+=for stopwords sigil
+
+Sometimes you don't care about some parameters you're being called with. Just put
 the bare sigil instead of a full variable name into the signature to avoid an
 extra lexical variable to be created.
 

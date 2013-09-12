@@ -436,4 +436,10 @@ sub validate {
 
 __PACKAGE__->meta->make_immutable;
 
+=pod
+
+=for stopwords metaclass
+
+=cut
+
 1;
