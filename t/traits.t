@@ -2,8 +2,7 @@ use strict;
 use warnings;
 use Test::More tests => 12;
 
-use FindBin;
-use lib "$FindBin::Bin/lib";
+use lib 't/lib';
 
 use TestClassTrait;
 
