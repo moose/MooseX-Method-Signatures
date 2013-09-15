@@ -4,8 +4,8 @@ Revision history for {{$dist->name}}
 
 0.45      2013-09-12 03:06:25Z (Karen Etheridge)
   - removed use of deprecated Class::MOP::load_class
-  - documentation reference added to the WARNING section in MooseX::Declare,
-    regarding future utility of this module
+  - documentation reference added, pointing to the WARNING section in
+    MooseX::Declare, regarding future utility of this module
   - repository migrated to the github moose organization
 
 0.44      2012-11-24 13:17:02 PST-0800 (Karen Etheridge)
