@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - re-release with fixed compile test
 
 0.45      2013-09-12 03:06:25Z (Karen Etheridge)
   - removed use of deprecated Class::MOP::load_class
