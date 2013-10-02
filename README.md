@@ -4,7 +4,7 @@ MooseX::Method::Signatures - Method declarations with type constraints and no so
 
 # VERSION
 
-version 0.45
+version 0.46
 
 # SYNOPSIS
 
@@ -283,3 +283,27 @@ This software is copyright (c) 2013 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+# CONTRIBUTORS
+
+- Ash Berlin <ash@cpan.org>
+- Cory Watson <gphat@cpan.org>
+- Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>
+- Daniel Ruoso <daniel@ruoso.com>
+- Dave Rolsky <autarch@urth.org>
+- Hakim Cassimally <osfameron@cpan.org>
+- Jesse Luehrs <doy@tozt.net>
+- Jonathan Rockway <jon@jrock.us>
+- Jonathan Scott Duff <duff@pobox.com>
+- Justin Hunter <justin.d.hunter@gmail.com>
+- Karen Etheridge <ether@cpan.org>
+- Kent Fredric <kentfredric@gmail.com>
+- Lukas Mai <l.mai@web.de>
+- Maik Hentsche <maik.hentsche@amd.com>
+- Matt Kraai <kraai@ftbfs.org>
+- Nicholas Perez <nperez@cpan.org>
+- Rhesa Rozendaal <rhesa@cpan.org>
+- Ricardo SIGNES <rjbs@cpan.org>
+- Sebastian Willert <willert@cpan.org>
+- Steffen Schwigon <ss5@renormalist.net>
+- Yanick Champoux <yanick@babyl.dyndns.org>
