@@ -4,7 +4,7 @@ MooseX::Method::Signatures - Method declarations with type constraints and no so
 
 # VERSION
 
-version 0.46
+version 0.47
 
 # SYNOPSIS
 
@@ -127,12 +127,12 @@ for example) then please raise a bug.
 
 ## Fancy signatures
 
-[Parse::Method::Signatures](http://search.cpan.org/perldoc?Parse::Method::Signatures) is used to parse the signatures. However, some
+[Parse::Method::Signatures](https://metacpan.org/pod/Parse::Method::Signatures) is used to parse the signatures. However, some
 signatures that can be parsed by it aren't supported by this module (yet).
 
 ## No source filter
 
-While this module does rely on the hairy black magic of [Devel::Declare](http://search.cpan.org/perldoc?Devel::Declare) it
+While this module does rely on the hairy black magic of [Devel::Declare](https://metacpan.org/pod/Devel::Declare) it
 does not depend on a source filter. As such, it doesn't try to parse and
 rewrite your source code and there should be no weird side effects.
 
@@ -141,8 +141,8 @@ As such, for all that hairy magic, this module is surprisingly stable.
 
 ## What about regular subroutines?
 
-[Devel::Declare](http://search.cpan.org/perldoc?Devel::Declare) cannot yet change the way `sub` behaves. However, the
-[signatures](http://search.cpan.org/perldoc?signatures) module can. Right now it only provides very basic
+[Devel::Declare](https://metacpan.org/pod/Devel::Declare) cannot yet change the way `sub` behaves. However, the
+[signatures](https://metacpan.org/pod/signatures) module can. Right now it only provides very basic
 signatures, but it's extendable enough that plugging MooseX::Method::Signatures
 signatures into that should be quite possible.
 
@@ -155,12 +155,12 @@ Type constraints for return values can be declared using
 however, this feature only works with scalar return values and is still
 considered to be experimental.
 
-## Interaction with [Moose::Role](http://search.cpan.org/perldoc?Moose::Role)
+## Interaction with [Moose::Role](https://metacpan.org/pod/Moose::Role)
 
 ### Methods not seen by a role's `requires`
 
-Because the processing of the [MooseX::Method::Signatures](http://search.cpan.org/perldoc?MooseX::Method::Signatures)
-`method` and the [Moose](http://search.cpan.org/perldoc?Moose) `with` keywords are both
+Because the processing of the [MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures)
+`method` and the [Moose](https://metacpan.org/pod/Moose) `with` keywords are both
 done at runtime, it can happen that a role will require
 a method before it is declared (which will cause
 Moose to complain very loudly and abort the program).
@@ -214,8 +214,8 @@ example, __Canine__ could be reworked thus:
 
     1;
 
-A better solution is to use [MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare) instead of plain
-[MooseX::Method::Signatures](http://search.cpan.org/perldoc?MooseX::Method::Signatures). It defers application of roles until the end
+A better solution is to use [MooseX::Declare](https://metacpan.org/pod/MooseX::Declare) instead of plain
+[MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures). It defers application of roles until the end
 of the class definition. With it, our example would becomes:
 
     # in file Canine.pm
@@ -244,8 +244,8 @@ of the class definition. With it, our example would becomes:
 
 ### _Subroutine redefined_ warnings
 
-When composing a [Moose::Role](http://search.cpan.org/perldoc?Moose::Role) into a class that uses
-[MooseX::Method::Signatures](http://search.cpan.org/perldoc?MooseX::Method::Signatures), you may get a "Subroutine redefined"
+When composing a [Moose::Role](https://metacpan.org/pod/Moose::Role) into a class that uses
+[MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures), you may get a "Subroutine redefined"
 warning. This happens when both the role and the class define a
 method/subroutine of the same name. (The way roles work, the one
 defined in the class takes precedence.) To eliminate this warning,
@@ -255,23 +255,23 @@ method/subroutine within a role.
 
 # CAVEATS
 
-You are encouraged to read the ["WARNING" in MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare#WARNING).
+You are encouraged to read the ["WARNING" in MooseX::Declare](https://metacpan.org/pod/MooseX::Declare#WARNING).
 
 # SEE ALSO
 
-[MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare)
+[MooseX::Declare](https://metacpan.org/pod/MooseX::Declare)
 
-[Method::Signatures::Simple](http://search.cpan.org/perldoc?Method::Signatures::Simple)
+[Method::Signatures::Simple](https://metacpan.org/pod/Method::Signatures::Simple)
 
-[Method::Signatures](http://search.cpan.org/perldoc?Method::Signatures)
+[Method::Signatures](https://metacpan.org/pod/Method::Signatures)
 
-[Devel::Declare](http://search.cpan.org/perldoc?Devel::Declare)
+[Devel::Declare](https://metacpan.org/pod/Devel::Declare)
 
-[Parse::Method::Signatures](http://search.cpan.org/perldoc?Parse::Method::Signatures)
+[Parse::Method::Signatures](https://metacpan.org/pod/Parse::Method::Signatures)
 
-[Moose](http://search.cpan.org/perldoc?Moose)
+[Moose](https://metacpan.org/pod/Moose)
 
-[signatures](http://search.cpan.org/perldoc?signatures)
+[signatures](https://metacpan.org/pod/signatures)
 
 # AUTHOR
 
@@ -288,7 +288,7 @@ the same terms as the Perl 5 programming language system itself.
 
 - Ash Berlin <ash@cpan.org>
 - Cory Watson <gphat@cpan.org>
-- Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>
+- Dagfinn Ilmari MannsÃ¥ker <ilmari@ilmari.org>
 - Daniel Ruoso <daniel@ruoso.com>
 - Dave Rolsky <autarch@urth.org>
 - Hakim Cassimally <osfameron@cpan.org>
