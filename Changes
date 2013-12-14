@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - update configure_requires checking in Makefile.PL, add CONTRIBUTING file
 
 0.46      2013-10-02 00:40:37Z
   - re-release with fixed compile test
