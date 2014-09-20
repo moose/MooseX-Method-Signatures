@@ -3,6 +3,7 @@ use warnings;
 
 package MooseX::Method::Signatures;
 # ABSTRACT: Method declarations with type constraints and no source filter
+# KEYWORDS: moose extension method declaration signature prototype syntax sugar
 
 use Moose 0.89;
 use Devel::Declare 0.005011 ();
