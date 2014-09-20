@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fix tests that fail on altered warning messages in perl 5.21.4 (see perl
+    RT#121638)
 
 0.47      2013-12-14 19:06:59Z
   - update configure_requires checking in Makefile.PL, add CONTRIBUTING file

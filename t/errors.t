@@ -13,7 +13,7 @@ local $TODO = 'Devel::Declare and Eval::Closure have unresolved issues'
     if Eval::Closure->VERSION > 0.06;
 
 like($@,
-     qr/^Global symbol "\$op" requires explicit package name at .*?\bInvalidCase01.pm line 8\b/,
+     qr/^Global symbol "\$op" requires explicit package name .*?\bInvalidCase01.pm line 8\b/,
      "Sane error message for syntax error");
 
 }
@@ -25,7 +25,7 @@ like($@,
 
   eval "use Redefined;";
   is($@, '', "No error");
-  like($warnings, qr/^Method meth1 redefined on package main at .*?\bRedefined.pm line 9\b/,
+  like($warnings, qr/^Method meth1 redefined on package main .*?\bRedefined.pm line 9\b/,
        "Redefined method warning");
 }
 
