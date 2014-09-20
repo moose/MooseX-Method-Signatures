@@ -606,18 +606,13 @@ You are encouraged to read the L<MooseX::Declare/WARNING>.
 
 =head1 SEE ALSO
 
-L<MooseX::Declare>
-
-L<Method::Signatures::Simple>
-
-L<Method::Signatures>
-
-L<Devel::Declare>
-
-L<Parse::Method::Signatures>
-
-L<Moose>
-
-L<signatures>
+=for :list
+* L<MooseX::Declare>
+* L<Method::Signatures::Simple>
+* L<Method::Signatures>
+* L<Devel::Declare>
+* L<Parse::Method::Signatures>
+* L<Moose>
+* L<signatures>
 
 =cut
