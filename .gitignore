@@ -1,5 +1,6 @@
+/.ackrc
 /.build/
-!.gitignore
-/MooseX-Method-Signatures-*
-/todo.txt
-/todo/
+!/.gitignore
+/.latest
+/MooseX-Method-Signatures-*/
+/MooseX-Method-Signatures-*.tar.gz
