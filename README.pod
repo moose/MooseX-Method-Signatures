@@ -1,12 +1,16 @@
-# NAME
+=pod
 
-MooseX::Method::Signatures - Method declarations with type constraints and no source filter
+=encoding UTF-8
 
-# VERSION
+=head1 NAME
 
-version 0.47
+MooseX::Method::Signatures - DEPRECATED: Method declarations with type constraints and no source filter
 
-# SYNOPSIS
+=head1 VERSION
+
+version 0.48
+
+=head1 SYNOPSIS
 
     package Foo;
 
@@ -44,70 +48,74 @@ version 0.47
 
     $foo->greet;                                    # Will fail.
 
-# DESCRIPTION
+=head1 DESCRIPTION
 
 Provides a proper method keyword, like "sub" but specifically for making methods
 and validating their arguments against Moose type constraints.
 
-# SIGNATURE SYNTAX
+=head1 SIGNATURE SYNTAX
 
 The signature syntax is heavily based on Perl 6. However not the full Perl 6
 signature syntax is supported yet and some of it never will be.
 
-## Type Constraints
+=head2 Type Constraints
 
     method foo (             $affe) # no type checking
     method bar (Animal       $affe) # $affe->isa('Animal')
     method baz (Animal|Human $affe) # $affe->isa('Animal') || $affe->isa('Human')
 
-## Positional vs. Named
+=head2 Positional vs. Named
 
     method foo ( $a,  $b,  $c) # positional
     method bar (:$a, :$b, :$c) # named
     method baz ( $a,  $b, :$c) # combined
 
-## Required vs. Optional
+=head2 Required vs. Optional
 
     method foo ($a , $b!, :$c!, :$d!) # required
     method bar ($a?, $b?, :$c , :$d?) # optional
 
-## Defaults
+=head2 Defaults
 
     method foo ($a = 42) # defaults to 42
 
-## Constraints
+=head2 Constraints
 
     method foo ($foo where { $_ % 2 == 0 }) # only even
 
-## Invocant
+=for stopwords Invocant
+
+=head2 Invocant
 
     method foo (        $moo) # invocant is called $self and is required
     method bar ($self:  $moo) # same, but explicit
     method baz ($class: $moo) # invocant is called $class
 
-## Labels
+=head2 Labels
 
     method foo (:     $affe ) # called as $obj->foo(affe => $value)
     method bar (:apan($affe)) # called as $obj->foo(apan => $value)
 
-## Traits
+=head2 Traits
 
     method foo (Affe $bar does trait)
     method foo (Affe $bar is trait)
 
-The only currently supported trait is `coerce`, which will attempt to coerce
+The only currently supported trait is C<coerce>, which will attempt to coerce
 the value provided if it doesn't satisfy the requirements of the type
 constraint.
 
-## Placeholders
+=head2 Placeholders
 
     method foo ($bar, $, $baz)
+
+=for stopwords sigil
 
 Sometimes you don't care about some parameters you're being called with. Just put
 the bare sigil instead of a full variable name into the signature to avoid an
 extra lexical variable to be created.
 
-## Complex Example
+=head2 Complex Example
 
     method foo ( SomeClass $thing where { $_->can('stuff') }:
                  Str  $bar  = "apan",
@@ -119,48 +127,48 @@ extra lexical variable to be created.
     # $baz is named, required, must be an integer, defaults to 42 and needs
     #      to be even and greater than 10
 
-# BUGS, CAVEATS AND NOTES
+=head1 BUGS, CAVEATS AND NOTES
 
 This module is as stable now, but this is not to say that it is entirely bug
 free. If you notice any odd behaviour (messages not being as good as they could
 for example) then please raise a bug.
 
-## Fancy signatures
+=head2 Fancy signatures
 
-[Parse::Method::Signatures](https://metacpan.org/pod/Parse::Method::Signatures) is used to parse the signatures. However, some
+L<Parse::Method::Signatures> is used to parse the signatures. However, some
 signatures that can be parsed by it aren't supported by this module (yet).
 
-## No source filter
+=head2 No source filter
 
-While this module does rely on the hairy black magic of [Devel::Declare](https://metacpan.org/pod/Devel::Declare) it
+While this module does rely on the hairy black magic of L<Devel::Declare> it
 does not depend on a source filter. As such, it doesn't try to parse and
 rewrite your source code and there should be no weird side effects.
 
 Devel::Declare only effects compilation. After that, it's a normal subroutine.
 As such, for all that hairy magic, this module is surprisingly stable.
 
-## What about regular subroutines?
+=head2 What about regular subroutines?
 
-[Devel::Declare](https://metacpan.org/pod/Devel::Declare) cannot yet change the way `sub` behaves. However, the
-[signatures](https://metacpan.org/pod/signatures) module can. Right now it only provides very basic
+L<Devel::Declare> cannot yet change the way C<sub> behaves. However, the
+L<signatures|signatures> module can. Right now it only provides very basic
 signatures, but it's extendable enough that plugging MooseX::Method::Signatures
 signatures into that should be quite possible.
 
-## What about the return value?
+=head2 What about the return value?
 
 Type constraints for return values can be declared using
 
-    method foo (Int $x, Str $y) returns (Bool) { ... }
+  method foo (Int $x, Str $y) returns (Bool) { ... }
 
 however, this feature only works with scalar return values and is still
 considered to be experimental.
 
-## Interaction with [Moose::Role](https://metacpan.org/pod/Moose::Role)
+=head2 Interaction with L<Moose::Role>
 
-### Methods not seen by a role's `requires`
+=head3 Methods not seen by a role's C<requires>
 
-Because the processing of the [MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures)
-`method` and the [Moose](https://metacpan.org/pod/Moose) `with` keywords are both
+Because the processing of the L<MooseX::Method::Signatures>
+C<method> and the L<Moose> C<with> keywords are both
 done at runtime, it can happen that a role will require
 a method before it is declared (which will cause
 Moose to complain very loudly and abort the program).
@@ -181,7 +189,6 @@ For example, the following will not work:
     1;
 
 
-
     # in file Watchdog.pm
 
     package Watchdog;
@@ -199,9 +206,9 @@ For example, the following will not work:
 
     1;
 
-A workaround for this problem is to use `with` only
+A workaround for this problem is to use C<with> only
 after the methods have been defined.  To take our previous
-example, __Canine__ could be reworked thus:
+example, B<Canine> could be reworked thus:
 
     package Canine;
 
@@ -214,8 +221,8 @@ example, __Canine__ could be reworked thus:
 
     1;
 
-A better solution is to use [MooseX::Declare](https://metacpan.org/pod/MooseX::Declare) instead of plain
-[MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures). It defers application of roles until the end
+A better solution is to use L<MooseX::Declare> instead of plain
+L<MooseX::Method::Signatures>. It defers application of roles until the end
 of the class definition. With it, our example would becomes:
 
     # in file Canine.pm
@@ -242,68 +249,172 @@ of the class definition. With it, our example would becomes:
 
     1;
 
-### _Subroutine redefined_ warnings
+=head3 I<Subroutine redefined> warnings
 
-When composing a [Moose::Role](https://metacpan.org/pod/Moose::Role) into a class that uses
-[MooseX::Method::Signatures](https://metacpan.org/pod/MooseX::Method::Signatures), you may get a "Subroutine redefined"
+When composing a L<Moose::Role> into a class that uses
+L<MooseX::Method::Signatures>, you may get a "Subroutine redefined"
 warning. This happens when both the role and the class define a
 method/subroutine of the same name. (The way roles work, the one
 defined in the class takes precedence.) To eliminate this warning,
-make sure that your `with` declaration happens after any
+make sure that your C<with> declaration happens after any
 method/subroutine declarations that may have the same name as a
 method/subroutine within a role.
 
-# CAVEATS
+=head1 WARNING
 
-You are encouraged to read the ["WARNING" in MooseX::Declare](https://metacpan.org/pod/MooseX::Declare#WARNING).
+=for stopwords mst
 
-# SEE ALSO
+=for comment rafl agreed we should have a warning, and mst wrote this for MooseX::Declare, but it applies equally well here:
 
-[MooseX::Declare](https://metacpan.org/pod/MooseX::Declare)
+B<Warning:> MooseX::Method::Signatures and L<MooseX::Declare> are based on
+L<Devel::Declare>, a giant bag of crack originally implemented by mst with the
+goal of upsetting the perl core developers so much by its very existence that
+they implemented proper keyword handling in the core.
 
-[Method::Signatures::Simple](https://metacpan.org/pod/Method::Signatures::Simple)
+As of perl5 version 14, this goal has been achieved, and modules such as
+L<Devel::CallParser>, L<Function::Parameters>, and L<Keyword::Simple> provide
+mechanisms to mangle perl syntax that don't require hallucinogenic drugs to
+interpret the error messages they produce.
 
-[Method::Signatures](https://metacpan.org/pod/Method::Signatures)
+If you want to use declarative syntax in new code, please for the love
+of kittens get yourself a recent perl and look at L<Moops> and
+L<core signatures|perlsub/Signatures> instead.
 
-[Devel::Declare](https://metacpan.org/pod/Devel::Declare)
+=head1 SEE ALSO
 
-[Parse::Method::Signatures](https://metacpan.org/pod/Parse::Method::Signatures)
+=over 4
 
-[Moose](https://metacpan.org/pod/Moose)
+=item *
 
-[signatures](https://metacpan.org/pod/signatures)
+L<MooseX::Declare>
 
-# AUTHOR
+=item *
+
+L<Method::Signatures::Simple>
+
+=item *
+
+L<Method::Signatures>
+
+=item *
+
+L<Devel::Declare>
+
+=item *
+
+L<Parse::Method::Signatures>
+
+=item *
+
+L<Moose>
+
+=item *
+
+L<signatures>
+
+=back
+
+=head1 AUTHOR
 
 Florian Ragwitz <rafl@debian.org>
 
-# COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Florian Ragwitz.
+This software is copyright (c) 2014 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-# CONTRIBUTORS
+=head1 CONTRIBUTORS
 
-- Ash Berlin <ash@cpan.org>
-- Cory Watson <gphat@cpan.org>
-- Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>
-- Daniel Ruoso <daniel@ruoso.com>
-- Dave Rolsky <autarch@urth.org>
-- Hakim Cassimally <osfameron@cpan.org>
-- Jesse Luehrs <doy@tozt.net>
-- Jonathan Rockway <jon@jrock.us>
-- Jonathan Scott Duff <duff@pobox.com>
-- Justin Hunter <justin.d.hunter@gmail.com>
-- Karen Etheridge <ether@cpan.org>
-- Kent Fredric <kentfredric@gmail.com>
-- Lukas Mai <l.mai@web.de>
-- Maik Hentsche <maik.hentsche@amd.com>
-- Matt Kraai <kraai@ftbfs.org>
-- Nicholas Perez <nperez@cpan.org>
-- Rhesa Rozendaal <rhesa@cpan.org>
-- Ricardo SIGNES <rjbs@cpan.org>
-- Sebastian Willert <willert@cpan.org>
-- Steffen Schwigon <ss5@renormalist.net>
-- Yanick Champoux <yanick@babyl.dyndns.org>
+=for stopwords Karen Etheridge Ash Berlin Daniel Ruoso Nicholas Perez Yanick Champoux Cory Watson Justin Hunter Rhesa Rozendaal Hakim Cassimally Kent Fredric Lukas Mai Dagfinn Ilmari Mannsåker Matt Kraai Ricardo SIGNES Steffen Schwigon Dave Rolsky Jesse Luehrs Jonathan Rockway Scott Duff Maik Hentsche Sebastian Willert
+
+=over 4
+
+=item *
+
+Karen Etheridge <ether@cpan.org>
+
+=item *
+
+Ash Berlin <ash@cpan.org>
+
+=item *
+
+Daniel Ruoso <daniel@ruoso.com>
+
+=item *
+
+Nicholas Perez <nperez@cpan.org>
+
+=item *
+
+Yanick Champoux <yanick@babyl.dyndns.org>
+
+=item *
+
+Cory Watson <gphat@cpan.org>
+
+=item *
+
+Justin Hunter <justin.d.hunter@gmail.com>
+
+=item *
+
+Rhesa Rozendaal <rhesa@cpan.org>
+
+=item *
+
+Hakim Cassimally <osfameron@cpan.org>
+
+=item *
+
+Kent Fredric <kentfredric@gmail.com>
+
+=item *
+
+Lukas Mai <l.mai@web.de>
+
+=item *
+
+Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>
+
+=item *
+
+Matt Kraai <kraai@ftbfs.org>
+
+=item *
+
+Ricardo SIGNES <rjbs@cpan.org>
+
+=item *
+
+Steffen Schwigon <ss5@renormalist.net>
+
+=item *
+
+Dave Rolsky <autarch@urth.org>
+
+=item *
+
+Jesse Luehrs <doy@tozt.net>
+
+=item *
+
+Jonathan Rockway <jon@jrock.us>
+
+=item *
+
+Jonathan Scott Duff <duff@pobox.com>
+
+=item *
+
+Maik Hentsche <maik.hentsche@amd.com>
+
+=item *
+
+Sebastian Willert <willert@cpan.org>
+
+=back
+
+=cut
