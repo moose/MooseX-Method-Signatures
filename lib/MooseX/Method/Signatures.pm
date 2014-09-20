@@ -2,8 +2,8 @@ use strict;
 use warnings;
 
 package MooseX::Method::Signatures;
-# ABSTRACT: Method declarations with type constraints and no source filter
-# KEYWORDS: moose extension method declaration signature prototype syntax sugar
+# ABSTRACT: DEPRECATED: Method declarations with type constraints and no source filter
+# KEYWORDS: moose extension method declaration signature prototype syntax sugar deprecated
 
 use Moose 0.89;
 use Devel::Declare 0.005011 ();
@@ -600,9 +600,25 @@ make sure that your C<with> declaration happens after any
 method/subroutine declarations that may have the same name as a
 method/subroutine within a role.
 
-=head1 CAVEATS
+=head1 WARNING
 
-You are encouraged to read the L<MooseX::Declare/WARNING>.
+=for stopwords mst
+
+=for comment rafl agreed we should have a warning, and mst wrote this for MooseX::Declare, but it applies equally well here:
+
+B<Warning:> MooseX::Method::Signatures and L<MooseX::Declare> are based on
+L<Devel::Declare>, a giant bag of crack originally implemented by mst with the
+goal of upsetting the perl core developers so much by its very existence that
+they implemented proper keyword handling in the core.
+
+As of perl5 version 14, this goal has been achieved, and modules such as
+L<Devel::CallParser>, L<Function::Parameters>, and L<Keyword::Simple> provide
+mechanisms to mangle perl syntax that don't require hallucinogenic drugs to
+interpret the error messages they produce.
+
+If you want to use declarative syntax in new code, please for the love
+of kittens get yourself a recent perl and look at L<Moops> and
+L<core signatures|perlsub/Signatures> instead.
 
 =head1 SEE ALSO
 
