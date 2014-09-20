@@ -5,6 +5,7 @@ use MooseX::Types 0.19 -declare => [qw/ Injections PrototypeInjections Params /]
 use MooseX::Types::Moose qw/Str ArrayRef/;
 use MooseX::Types::Structured 0.24 qw/Dict/;
 use Parse::Method::Signatures::Types qw/Param/;
+use if MooseX::Types->VERSION >= 0.42, 'namespace::autoclean';
 
 subtype Injections,
     as ArrayRef[Str];
