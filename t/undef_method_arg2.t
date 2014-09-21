@@ -15,8 +15,6 @@ my $captured_args;
     use Moose;
     use MooseX::Method::Signatures;
 
-    use Data::Dumper;
-
     method foo (
         Str :$foo_a!,
         Maybe[Str] :$foo_b?) {
@@ -30,8 +28,6 @@ my $captured_args;
     use Moose;
     use MooseX::Method::Signatures;
 
-    use Data::Dumper;
-
     method foo (
         Str $foo_a!,
         Maybe[Str] $foo_b?) {
@@ -41,9 +37,6 @@ my $captured_args;
 
 use Test::More;
 use Test::Deep;
-use Data::Dumper;
-
-
 
 my $positional = Positional->new;
 $positional->foo('str', undef);
@@ -95,7 +88,6 @@ cmp_deeply(
     'named: omitting an argument results in no entry in @_',
 );
 
-#print "### named captured args: ", Dumper($captured_args);
 }
 
 
