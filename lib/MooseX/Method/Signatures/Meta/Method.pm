@@ -1,5 +1,5 @@
 package MooseX::Method::Signatures::Meta::Method;
-# ABSTRACT: Provides the metaclass for methods with signatures
+# ABSTRACT: (DEPRECATED) Provides the metaclass for methods with signatures
 
 use Moose;
 use Carp qw/cluck/;
