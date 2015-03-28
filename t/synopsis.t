@@ -42,9 +42,7 @@ use Test::Fatal;
     #      to be even and greater than 10
 }
 
-my $foo = Foo->new;
-
-isa_ok($foo, 'Foo');
+my $foo = new_ok('Foo');
 
 is(exception { is $foo->morning('Resi'), 'Good morning Resi!' }, undef, 'positional str arg');
 is(exception { is $foo->hello(who => 'world', age => 42), 'Hello world, I am 42 years old!' }, undef, 'two named args');
@@ -54,9 +52,7 @@ like(exception { $foo->hello(who => 'world', age => -23) }, qr/Validation failed
 like(exception { $foo->morning }, qr/Validation failed/, 'no required (positional) arg passed');
 like(exception { $foo->greet }, qr/Validation failed/, 'no required (positional) arg passed');
 
-my $someclass = SomeClass->new;
-
-isa_ok($someclass, 'SomeClass');
+my $someclass = new_ok('SomeClass');
 
 is(exception { is $someclass->foo, 'apan:42' }, undef, '$someclass->foo');
 is(exception { is $someclass->foo('quux'), 'quux:42' }, undef, '$someclass->foo("quux")');
