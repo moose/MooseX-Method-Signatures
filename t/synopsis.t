@@ -47,6 +47,7 @@ my $foo = new_ok('Foo');
 is(exception { is $foo->morning('Resi'), 'Good morning Resi!' }, undef, 'positional str arg');
 is(exception { is $foo->hello(who => 'world', age => 42), 'Hello world, I am 42 years old!' }, undef, 'two named args');
 is(exception { is $foo->greet('Resi', excited => 1), 'GREETINGS Resi!' }, undef, 'positional and named args (with named default)');
+is(exception { is $foo->greet('Resi'), 'Hi Resi!' }, undef, 'In else Branch (excited 0): positional and named args (with named default)');
 like(exception { $foo->hello(who => 'world', age => 'fortytwo') }, qr/Validation failed/, 'Str, Str sent to Str, Int');
 like(exception { $foo->hello(who => 'world', age => -23) }, qr/Validation failed/, 'Int violates where');
 like(exception { $foo->morning }, qr/Validation failed/, 'no required (positional) arg passed');
