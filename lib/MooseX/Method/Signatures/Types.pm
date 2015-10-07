@@ -1,6 +1,8 @@
 package MooseX::Method::Signatures::Types;
 #ABSTRACT: (DEPRECATED) Provides common MooseX::Types used by MooseX::Method::Signatures
 
+our $VERSION = '0.49';
+
 use MooseX::Types 0.19 -declare => [qw/ Injections PrototypeInjections Params /];
 use MooseX::Types::Moose qw/Str ArrayRef/;
 use MooseX::Types::Structured 0.24 qw/Dict/;

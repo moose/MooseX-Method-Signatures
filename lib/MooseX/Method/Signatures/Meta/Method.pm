@@ -1,6 +1,8 @@
 package MooseX::Method::Signatures::Meta::Method;
 # ABSTRACT: (DEPRECATED) Provides the metaclass for methods with signatures
 
+our $VERSION = '0.49';
+
 use Moose;
 use Carp qw/cluck/;
 use Context::Preserve;
