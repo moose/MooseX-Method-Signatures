@@ -21,7 +21,7 @@ use Test::Fatal;
     use MooseX::Method::Signatures;
     BEGIN { MyTypes->import('CustomType') };
     use MooseX::Types::Moose qw/ArrayRef/;
-    use namespace::clean;
+    use namespace::clean 0.19;
 
     method foo (CustomType $bar) { }
 
