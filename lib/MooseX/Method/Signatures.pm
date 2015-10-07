@@ -5,7 +5,7 @@ package MooseX::Method::Signatures;
 # ABSTRACT: (DEPRECATED) Method declarations with type constraints and no source filter
 # KEYWORDS: moose extension method declaration signature prototype syntax sugar deprecated
 
-our $VERSION = '0.49';
+our $VERSION = '0.50';
 
 use Moose 0.89;
 use Devel::Declare 0.005011 ();

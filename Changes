@@ -1,5 +1,7 @@
 Revision history for MooseX-Method-Signatures
 
+{{$NEXT}}
+
 0.49      2015-10-07 01:07:44Z
   - added x_deprecated to metadata
 
