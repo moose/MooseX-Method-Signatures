@@ -485,7 +485,7 @@ extra lexical variable to be created.
     # $baz is named, required, must be an integer, defaults to 42 and needs
     #      to be even and greater than 10
 
-=head1 BUGS, CAVEATS AND NOTES
+=head1 CAVEATS AND NOTES
 
 This module is as stable now, but this is not to say that it is entirely bug
 free. If you notice any odd behaviour (messages not being as good as they could
