@@ -6,7 +6,6 @@ use Test::Fatal;
 {
     package MyTypes;
     use MooseX::Types::Moose qw/Str/;
-    use Moose::Util::TypeConstraints;
     use MooseX::Types -declare => [qw/CustomType/];
 
     BEGIN {

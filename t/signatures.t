@@ -3,7 +3,6 @@ use warnings;
 
 use Test::More;
 use MooseX::Method::Signatures;
-use Moose::Util::TypeConstraints;
 
 {
     package Bar::Foo;
