@@ -35,7 +35,7 @@ my $captured_args;
     }
 }
 
-use Test::More;
+use Test::More 0.88;
 use Test::Deep;
 
 my $positional = Positional->new;
